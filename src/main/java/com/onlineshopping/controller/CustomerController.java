@@ -87,11 +87,6 @@ public class CustomerController {
 
 	@GetMapping("/showRegistrationForm")
 	public String showRegistratonForm(Model theModel, HttpServletRequest request) {
-
-		Customer customer = Commons.isLoggedIn(request);
-		if (customer == null)
-			return "redirect:/";
-
 		theModel.addAttribute("customer", new Customer());
 		// need to update the name of the page returned
 		return "customer-registration";
@@ -99,10 +94,6 @@ public class CustomerController {
 
 	@GetMapping("/showForgetPasswordForm")
 	public String showForgetPasswordForm(Model theModel, HttpServletRequest request) {
-
-		Customer customer = Commons.isLoggedIn(request);
-		if (customer == null)
-			return "redirect:/";
 
 		theModel.addAttribute("customer", new Customer());
 		// need to update the name of the page returned
